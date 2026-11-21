@@ -16,7 +16,7 @@ Kayfiyat: yengil, qiziqarli. Ekran yozuvi asosida: https://claude.ai/artifact/Xy
 
 ## Caption
 
-7 ta xodim, bitta buyruq va hech kim kofe sóramaydi ☕
+7 ta xodim, bitta buyruq va heç kim kofe sóramaydi ☕
 
 Bu mening AI agentlarim. Har biri óz işini qiladi: biri dars rejasi yozadi, biri slayd yasaydi, biri Excel maşq tuzadi, biri test tayyorlaydi. Oxirida tekşiruvçi hammasini kórib çiqadi va xatoni qaytaradi.
 
