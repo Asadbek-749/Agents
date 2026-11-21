@@ -6,7 +6,10 @@ Bu repo Claude Code plugin marketplace'i. Undagi `ustoz-agentlar` plugin'i istal
 - `.claude-plugin/marketplace.json` — marketplace tavsifi
 - `plugins/ustoz-agentlar/.claude-plugin/plugin.json` — plugin nomi va versiyasi
 - `plugins/ustoz-agentlar/agents/` — 7 ta subagent
-- `plugins/ustoz-agentlar/commands/` — /dars, /kontent, /loyiha
+- `plugins/ustoz-agentlar/commands/` — /dars, /kontent, /loyiha, /nargis
+- `plugins/ustoz-agentlar/skills/nargis/SKILL.md` — Nargis, jamoa direktori ("Nargis, ..." deb chaqiriladi)
+- `plugins/ustoz-agentlar/arxiv/` — arxivlangan agentlar (yuklanmaydi)
+- `jamoa-jurnali.md` — jamoa tarkibidagi o'zgarishlar tarixi
 - `plugins/ustoz-agentlar/skills/ustoz-qoidalari/SKILL.md` — umumiy qoidalar (alifbo, reja, fayllar, brend)
 - `brend/brend.md` — shu repo ichida ishlaganda ishlatiladigan brend (boshqa loyihalarga ham nusxa qilish mumkin)
 
