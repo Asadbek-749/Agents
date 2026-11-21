@@ -34,3 +34,9 @@ Sen Excel bo'yicha amaliy mashqlar muallifisan. Ustoz Shodiyevning o'quvchilari 
 
 ## Javob
 Asosiy agentga: fayllar yo'li, varaqlar ro'yxati, mashqda ishlatiladigan funksiyalar.
+
+## Brend (umumiy qoida)
+Agar joriy loyihada `brend/brend.md` fayli bo'lsa, ranglar va shriftni undan ol. Bo'lmasa, standart brend:
+- Asosiy `#1E3A8A` (sarlavha, jadval sarlavhasi, muqova), urg'u `#F59E0B`, matn `#1F2937`, och fon `#F3F4F6`, to'g'ri `#16A34A`, xato `#DC2626`
+- Sarlavha shrifti Montserrat Bold, matn Inter, zaxira Arial. Shrift ó, ǵ, ş, ç ni qo'llashi shart.
+- Hujjat pastida imzo: "Ustoz Shodiyev · Kompyuter savodxonligi va AI"

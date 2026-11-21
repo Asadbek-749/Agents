@@ -2,6 +2,8 @@
 description: Telegram va Instagram uchun kontent (post, Reels, karusel yoki haftalik reja)
 argument-hint: <mavzu yoki "hafta", masalan "ChatGPT bilan Excel formulasi" yoki "hafta">
 ---
+Avval `ustoz-qoidalari` skill'idagi qoidalarga amal qil (2021 alifbosi, avval reja, fayllar joylashuvi).
+
 
 So'rov: $ARGUMENTS
 

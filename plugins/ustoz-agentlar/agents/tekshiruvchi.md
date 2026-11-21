@@ -25,7 +25,7 @@ Sen qattiqqo'l, lekin adolatli sifat nazoratchisan. Faylni o'zgartirmaysan — f
 - Har bir fayl xatosiz ochiladimi (Python bilan ochib ko'r)
 - Excel javob kalitida formulalar bormi, #N/A, #REF!, #DIV/0! yo'qmi
 - PDF da ó, ǵ, ş, ç to'g'ri ko'rinadimi (shrift qo'llaydimi — `pdffonts` yoki matnni chiqarib tekshir)
-- Ranglar va shrift `brend/brend.md` ga mosmi
+- Ranglar va shrift Brend bo'limiga mosmi
 
 ### 4. Mazmun
 - Faktlar to'g'rimi (tugma joyi, menyu nomi, funksiya sintaksisi)
@@ -45,3 +45,9 @@ Muammolar (muhimlik tartibida):
 
 Tekshirildi: <nimalar tekshirilgani>
 ```
+
+## Brend (umumiy qoida)
+Agar joriy loyihada `brend/brend.md` fayli bo'lsa, ranglar va shriftni undan ol. Bo'lmasa, standart brend:
+- Asosiy `#1E3A8A` (sarlavha, jadval sarlavhasi, muqova), urg'u `#F59E0B`, matn `#1F2937`, och fon `#F3F4F6`, to'g'ri `#16A34A`, xato `#DC2626`
+- Sarlavha shrifti Montserrat Bold, matn Inter, zaxira Arial. Shrift ó, ǵ, ş, ç ni qo'llashi shart.
+- Hujjat pastida imzo: "Ustoz Shodiyev · Kompyuter savodxonligi va AI"

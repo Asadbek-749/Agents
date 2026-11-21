@@ -1,0 +1,17 @@
+{
+  "name": "ustoz-shodiyev",
+  "owner": {
+    "name": "Ustoz Shodiyev"
+  },
+  "metadata": {
+    "description": "Ustoz Shodiyevning shaxsiy AI agentlari: dars materiallari, ijtimoiy tarmoq kontenti va vibe coding"
+  },
+  "plugins": [
+    {
+      "name": "ustoz-agentlar",
+      "source": "./plugins/ustoz-agentlar",
+      "description": "7 ta agent (dars, taqdimot, Excel, test, kontent, kod, tekshiruv) va /dars, /kontent, /loyiha buyruqlari",
+      "version": "1.0.0"
+    }
+  ]
+}

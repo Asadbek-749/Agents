@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "ustoz-shodiyev": {
+      "source": {
+        "source": "github",
+        "repo": "Asadbek-749/Agents"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "ustoz-agentlar@ustoz-shodiyev": true
+  }
+}

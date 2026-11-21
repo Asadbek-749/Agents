@@ -2,6 +2,8 @@
 description: Yangi vibe coding loyiha (Telegram bot, sayt, Office avtomatlashtirish yoki AI agent)
 argument-hint: <g'oya, masalan "o'quvchilar test topshiradigan Telegram bot">
 ---
+Avval `ustoz-qoidalari` skill'idagi qoidalarga amal qil (2021 alifbosi, avval reja, fayllar joylashuvi).
+
 
 G'oya: $ARGUMENTS
 

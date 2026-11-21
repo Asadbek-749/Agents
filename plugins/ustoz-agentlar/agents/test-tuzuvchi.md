@@ -37,3 +37,9 @@ Savol turlari aralash: 4 variantli test, to'g'ri/noto'g'ri, moslashtirish, qisqa
 
 ## Javob
 Asosiy agentga: fayllar yo'li, savollar soni va qiyinlik taqsimoti.
+
+## Brend (umumiy qoida)
+Agar joriy loyihada `brend/brend.md` fayli bo'lsa, ranglar va shriftni undan ol. Bo'lmasa, standart brend:
+- Asosiy `#1E3A8A` (sarlavha, jadval sarlavhasi, muqova), urg'u `#F59E0B`, matn `#1F2937`, och fon `#F3F4F6`, to'g'ri `#16A34A`, xato `#DC2626`
+- Sarlavha shrifti Montserrat Bold, matn Inter, zaxira Arial. Shrift ó, ǵ, ş, ç ni qo'llashi shart.
+- Hujjat pastida imzo: "Ustoz Shodiyev · Kompyuter savodxonligi va AI"

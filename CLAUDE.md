@@ -1,68 +1,20 @@
-# Agent-001 — Ustoz Shodiyevning shaxsiy agentlar jamoasi
+# Agents — Ustoz Shodiyevning plugin manbasi
 
-Bu repo egasi: Asadbek (Ustoz Shodiyev), kompyuter savodxonligi va sun'iy intellekt o'qituvchisi.
-Darslar: Word, Excel, PowerPoint, Google vositalari, Canva, AI vositalari.
-Auditoriya: o'quvchilar va kattalar (tadbirkorlar, davlat xodimlari), IT bilimi yo'q odamlar.
-Agentlardan faqat egasining o'zi foydalanadi.
+Bu repo Claude Code plugin marketplace'i. Undagi `ustoz-agentlar` plugin'i istalgan loyihaga o'rnatiladi.
 
-## Asosiy qoidalar (barcha agentlar uchun)
+## Tuzilma
+- `.claude-plugin/marketplace.json` — marketplace tavsifi
+- `plugins/ustoz-agentlar/.claude-plugin/plugin.json` — plugin nomi va versiyasi
+- `plugins/ustoz-agentlar/agents/` — 7 ta subagent
+- `plugins/ustoz-agentlar/commands/` — /dars, /kontent, /loyiha
+- `plugins/ustoz-agentlar/skills/ustoz-qoidalari/SKILL.md` — umumiy qoidalar (alifbo, reja, fayllar, brend)
+- `brend/brend.md` — shu repo ichida ishlaganda ishlatiladigan brend (boshqa loyihalarga ham nusxa qilish mumkin)
 
-### 1. Avval reja, keyin ish
-Har qanday katta vazifada (dars paketi, kontent, loyiha):
-1. Qisqa reja ko'rsat: nima tayyorlanadi, qaysi fayllar, qaysi agentlar ishlaydi.
-2. Egasining tasdig'ini kut ("ha", "boshla", yoki tuzatish).
-3. Tasdiqdan keyin vazifani tegishli agentlarga bo'lib ber, imkon bo'lsa parallel.
-4. Oxirida `tekshiruvchi` agentidan o'tkaz va natijani qisqa hisobot bilan ber.
+## Plugin'ni o'zgartirganda
+1. Kerakli faylni tahrirla.
+2. `plugins/ustoz-agentlar/.claude-plugin/plugin.json` va `.claude-plugin/marketplace.json` dagi `version` ni bir xil oshir (1.0.0 → 1.0.1).
+3. Tekshir: `claude plugin validate .` va `claude plugin validate plugins/ustoz-agentlar`.
+4. Agent frontmatter'idagi `description` qo'shtirnoq bilan boshlanmasin (YAML xatosi beradi).
+5. Commit va push. Foydalanuvchi `/plugin update ustoz-agentlar` bilan yangilaydi.
 
-Kichik savol yoki bitta tuzatish uchun reja shart emas — darhol bajar.
-
-### 2. Til va alifbo
-- Barcha materiallar va kontent **2021-yilgi yangi o'zbek lotin alifbosi loyihasida** yoziladi.
-  - oʻ → **ó** (Ó), gʻ → **ǵ** (Ǵ), sh → **ş** (Ş), ch → **ç** (Ç)
-  - ng o'zgarmaydi, tutuq belgisi ʼ qoladi (maʼlumot, taʼlim)
-  - Misollar: Ózbekiston, ǵoya, şahar, çiroyli, óqituvçi, kóçirish, jadvaldaǵi
-- Rus tilidagi variant **faqat egasi so'raganda** tayyorlanadi.
-- Atamalar (Excel, VLOOKUP, ChatGPT, Canva) asl nomida qoladi.
-- Murakkab narsani sodda so'z va hayotiy misol bilan tushuntir.
-
-### 3. Dizayn
-- Ranglar, shriftlar va logotip: `brend/brend.md`. Har bir fayl shu yerdan oladi.
-- Shrift ó, ǵ, ş, ç harflarini qo'llashi shart (tekshiruvchi buni tekshiradi).
-
-### 4. Fayllar qayerga saqlanadi
-- Dars materiallari: `materiallar/<kurs>/<NN-mavzu>/` (masalan `materiallar/excel/05-vlookup/`)
-- Ijtimoiy tarmoq: `kontent/<YYYY-MM-DD>-<mavzu>/`
-- Kod loyihalari: `loyihalar/<loyiha-nomi>/`
-- Fayl nomlari lotin harflarida, bo'sh joysiz: `dars-rejasi.docx`, `taqdimot.pptx`
-
-### 5. Texnologiyalar
-- Word: Python `python-docx`
-- Excel: Python `openpyxl`
-- PowerPoint: Node.js `pptxgenjs`
-- PDF: avval HTML yasaladi, keyin Chromium/Playwright orqali PDF ga o'giriladi
-- HTML: bitta mustaqil fayl (CSS ichida), telefonda ham chiroyli ko'rinadi
-- Yaratish skriptlari fayl yonida `_skript/` papkasida saqlanadi, keyin qayta ishlatish uchun
-
-### 6. Kod qoidalari
-Egasi kodni o'zi yozmaydi. Shuning uchun:
-- Kod doim to'liq va ishga tayyor bo'lsin, "qolganini o'zing to'ldir" bo'lmasin.
-- Qayerga qo'yish va qanday ishga tushirish qadamma-qadam yozilsin.
-- Xato bo'lsa, sababi oddiy tilda tushuntirilsin va tuzatilgan to'liq variant berilsin.
-- API kalit va tokenlar hech qachon kodga yozilmaydi, faqat `.env` faylga (`.gitignore` da).
-
-## Agentlar jamoasi
-
-| Agent | Vazifasi |
-|---|---|
-| `dars-rejachi` | Dars rejasi, amaliy topshiriq, uyga vazifa (Word + HTML) |
-| `taqdimot-ustasi` | Sinf uchun taqdimot (PowerPoint + HTML slaydlar) |
-| `excel-mashq` | Amaliy Excel fayllar, javob kaliti, baholash jadvali |
-| `test-tuzuvchi` | Test va tekshirish savollari, javob kaliti (PDF + Word) |
-| `kontent-muallif` | Telegram post, Reels ssenariy, karusel, haftalik kontent-reja |
-| `vibe-koder` | Telegram bot, sayt, Office avtomatlashtirish, AI agentlar |
-| `tekshiruvchi` | Yakuniy sifat nazorati: alifbo, tuzilma, fayllar ochilishi |
-
-## Tezkor buyruqlar
-- `/dars <mavzu>` — to'liq dars paketi
-- `/kontent <mavzu yoki hafta>` — ijtimoiy tarmoq kontenti
-- `/loyiha <g'oya>` — yangi vibe coding loyiha
+Umumiy ish qoidalari `ustoz-qoidalari` skill'ida — shu repoda ham ular amal qiladi.

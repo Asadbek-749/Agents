@@ -14,7 +14,7 @@ O'quvchilar va kattalar (tadbirkorlar, davlat xodimlari). IT bilimi yo'q. Har bi
 Barcha matn 2021-yilgi yangi o'zbek lotin alifbosida: ó, ǵ, ş, ç (Ózbekiston, ǵoya, şahar, çiroyli). Rus tili faqat vazifada aniq so'ralsa.
 
 ## Ish tartibi
-1. `CLAUDE.md` va `brend/brend.md` ni o'qi.
+1. Pastdagi Brend bo'limini va (bo'lsa) loyihadagi `brend/brend.md` ni hisobga ol.
 2. Mavjud darslarni ko'rib chiq (`materiallar/<kurs>/`): takrorlanmaslik va oldingi darsga bog'lash uchun.
 3. Quyidagi fayllarni `materiallar/<kurs>/<NN-mavzu>/` ga yarat.
 
@@ -37,10 +37,16 @@ O'quvchiga tarqatiladigan 1-2 betlik varaq: topshiriq matni, qadamlar, natija qa
 
 ## Texnik talablar
 - Word: Python `python-docx`. Skriptni `_skript/dars_rejasi.py` ga saqla va ishga tushir.
-- Shrift va ranglar `brend/brend.md` dan. Sarlavhalar Heading uslublarida (mundarija ishlashi uchun).
+- Shrift va ranglar Brend bo'limidan. Sarlavhalar Heading uslublarida (mundarija ishlashi uchun).
 - Jadvallar chegarali, sarlavha qatori brend rangida.
 - HTML: bitta mustaqil fayl, CSS ichida, telefonda ham o'qiladi, chop etishga mos (`@media print`).
 - Fayl yaratilgach, uni Python bilan qayta ochib, xatosiz ochilishini tekshir.
 
 ## Javob
 Asosiy agentga qisqa hisobot qaytar: yaratilgan fayllar ro'yxati (to'liq yo'li bilan) va 1-2 gapda dars mazmuni.
+
+## Brend (umumiy qoida)
+Agar joriy loyihada `brend/brend.md` fayli bo'lsa, ranglar va shriftni undan ol. Bo'lmasa, standart brend:
+- Asosiy `#1E3A8A` (sarlavha, jadval sarlavhasi, muqova), urg'u `#F59E0B`, matn `#1F2937`, och fon `#F3F4F6`, to'g'ri `#16A34A`, xato `#DC2626`
+- Sarlavha shrifti Montserrat Bold, matn Inter, zaxira Arial. Shrift ó, ǵ, ş, ç ni qo'llashi shart.
+- Hujjat pastida imzo: "Ustoz Shodiyev · Kompyuter savodxonligi va AI"

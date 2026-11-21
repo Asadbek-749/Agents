@@ -2,6 +2,8 @@
 description: To'liq dars paketini tayyorlash (reja, taqdimot, Excel mashq, test, uyga vazifa)
 argument-hint: <kurs va mavzu, masalan "Excel VLOOKUP" yoki "Word mundarija">
 ---
+Avval `ustoz-qoidalari` skill'idagi qoidalarga amal qil (2021 alifbosi, avval reja, fayllar joylashuvi).
+
 
 Mavzu: $ARGUMENTS
 

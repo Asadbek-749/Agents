@@ -1,53 +1,48 @@
-# Agent-001
+# Agents — Ustoz Shodiyevning AI agentlari
 
-Ustoz Shodiyevning shaxsiy AI agentlar jamoasi (Claude Code subagentlari).
-Dars materiallari, ijtimoiy tarmoq kontenti va vibe coding loyihalari uchun.
+Claude Code uchun plugin: 7 ta agent va 3 ta tezkor buyruq.
+Dars materiallari, Telegram/Instagram kontenti va vibe coding loyihalari uchun.
 
-## Ichida nima bor
+## Istalgan loyihaga o'rnatish
+
+Claude Code chatiga yozing:
 
 ```
-Agent-001/
-├── CLAUDE.md                  ← umumiy qoidalar (barcha agentlar o'qiydi)
-├── brend/brend.md             ← ranglar, shriftlar, logotip
-├── .claude/
-│   ├── agents/                ← 7 ta agent
-│   │   ├── dars-rejachi.md
-│   │   ├── taqdimot-ustasi.md
-│   │   ├── excel-mashq.md
-│   │   ├── test-tuzuvchi.md
-│   │   ├── kontent-muallif.md
-│   │   ├── vibe-koder.md
-│   │   └── tekshiruvchi.md
-│   └── commands/              ← tezkor buyruqlar
-│       ├── dars.md            → /dars
-│       ├── kontent.md         → /kontent
-│       └── loyiha.md          → /loyiha
-├── materiallar/               ← tayyor dars materiallari shu yerga tushadi
-├── kontent/                   ← postlar va ssenariylar
-└── loyihalar/                 ← kod loyihalari
+/plugin marketplace add Asadbek-749/Agents
+/plugin install ustoz-agentlar@ustoz-shodiyev
 ```
 
-## O'rnatish (bir marta)
+Keyin yangi sessiya oching (yoki `/reload-plugins`). Bir marta o'rnatsangiz, shu kompyuterdagi barcha loyihalarda ishlaydi.
 
-1. GitHub'da `Agent-001` repo oching (README bilan).
-2. Shu papkadagi barcha fayllarni repoga yuklang:
-   - GitHub sahifasida **Add file → Upload files** ni bosing va papkalarni sudrab tashlang.
-   - `.claude` papkasi nuqta bilan boshlanadi va ba'zan yashirin turadi. Yuklanganini tekshiring: repoda `.claude/agents/` ko'rinishi kerak.
-3. `brend/brend.md` faylini oching va o'z ranglaringizni yozing.
-4. Claude Code'da `Agent-001` tanlangan holda yangi sessiya oching.
-5. Tekshirish uchun `/agents` deb yozing: 7 ta agent ro'yxatda ko'rinishi kerak.
+**Bulutli sessiya (claude.ai/code) uchun:** har bir yangi sessiyada yuqoridagi 2 qatorni yozing.
+Yoki loyihangizga `.claude/settings.json` faylini qo'shing (shu repodagi namunadan nusxa oling) —
+shunda plugin o'sha loyihada avtomatik yoqiladi.
 
-## Ishlatish
+## Agentlar
 
-| Nima kerak | Nima yozasiz |
+| Agent | Vazifasi |
 |---|---|
-| To'liq dars paketi | `/dars Excel VLOOKUP` |
-| Ijtimoiy tarmoq posti | `/kontent ChatGPT bilan Excel formulasi yozish` |
-| Haftalik kontent-reja | `/kontent hafta` |
-| Yangi bot yoki sayt | `/loyiha o'quvchilar test topshiradigan Telegram bot` |
-| Bitta agentni chaqirish | `test-tuzuvchi agenti bilan Word bo'yicha 20 ta savol tuz` |
+| `dars-rejachi` | Dars rejasi, topshiriq varaqasi, uyga vazifa (Word + HTML) |
+| `taqdimot-ustasi` | Sinf uchun taqdimot (PowerPoint + HTML slaydlar) |
+| `excel-mashq` | Excel mashq, javob kaliti, baholash jadvali |
+| `test-tuzuvchi` | Test va javob kaliti (PDF + Word) |
+| `kontent-muallif` | Telegram post, Reels ssenariy, karusel, haftalik reja |
+| `vibe-koder` | Telegram bot, sayt, Office avtomatlashtirish, AI agentlar |
+| `tekshiruvchi` | Yakuniy sifat nazorati |
 
-Har bir katta ishda Claude avval qisqa reja ko'rsatadi. "Ha" yoki "boshla" deb yozsangiz, ishni boshlaydi. Rejani o'zgartirmoqchi bo'lsangiz, oddiy so'z bilan yozing.
+## Buyruqlar
 
-## Agentni o'zgartirish
-Agent fayli oddiy matn. Masalan, testlar 15 emas, 20 ta savoldan iborat bo'lishini xohlasangiz, `.claude/agents/test-tuzuvchi.md` ni oching va raqamni o'zgartiring. Yoki Claude'ga ayting: "test-tuzuvchi agentida standart savollar sonini 20 qil".
+| Buyruq | Misol |
+|---|---|
+| `/dars` | `/dars Excel VLOOKUP` |
+| `/kontent` | `/kontent hafta` yoki `/kontent ChatGPT bilan Excel formulasi` |
+| `/loyiha` | `/loyiha o'quvchilar test topshiradigan Telegram bot` |
+
+Agar `/dars` boshqa plugin bilan to'qnashsa, to'liq nomini yozing: `/ustoz-agentlar:dars`.
+
+## Brend
+Loyihangizda `brend/brend.md` bo'lsa, agentlar ranglar va shriftni undan oladi. Bo'lmasa, standart brend ishlatiladi.
+Namuna: shu repodagi `brend/brend.md`.
+
+## Yangilash
+Agentlar o'zgartirilgach: `/plugin update ustoz-agentlar`.
