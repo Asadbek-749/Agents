@@ -66,8 +66,10 @@ Egasi kodni o'zi yozmaydi. Shuning uchun:
 | `kontent-muallif` | Telegram post, Reels ssenariy, karusel, haftalik kontent-reja |
 | `vibe-koder` | Telegram bot, sayt, Office avtomatlashtirish, AI agentlar |
 | `tekshiruvchi` | Yakuniy sifat nazorati: alifbo, tuzilma, fayllar ochilishi |
+| Nargis (`nargis` skill) | Jamoa direktori: agent yaratish, tahrirlash, arxivlash, ishni taqsimlash |
 
 ## Tezkor buyruqlar
 - `/dars <mavzu>` — to'liq dars paketi
 - `/kontent <mavzu yoki hafta>` — ijtimoiy tarmoq kontenti
 - `/loyiha <g'oya>` — yangi vibe coding loyiha
+- `/nargis <buyruq>` yoki "Nargis, ..." — jamoa direktori (agentlar tarkibi va ishni taqsimlash)
