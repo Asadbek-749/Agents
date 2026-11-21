@@ -54,10 +54,19 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .board .bb{height:.4cqw;border-radius:.2cqw;background:#E2E8F0;overflow:hidden;flex:0 0 auto}
 .board .bb div{height:100%;width:0;background:var(--ac);transition:width .25s}
 .board .bx{font:500 .7cqw/1.3 var(--f-mono);color:#64748B;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word}
-.tok{position:absolute;width:3cqw;height:3cqw;margin:-1.5cqw 0 0 -1.5cqw;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;font:800 .85cqw var(--f-display);box-shadow:0 0 0 .25cqw rgba(255,255,255,.85),0 0 1.6cqw .4cqw var(--ac);z-index:5;transition:opacity .3s}
+.sit{position:absolute;background-image:url(ofis-fon.jpg);background-repeat:no-repeat;transition:opacity .45s;pointer-events:none}
+.sit.off{opacity:0}
+.tok{position:absolute;height:12.6cqw;transform:translate(-50%,-100%);z-index:5;pointer-events:none}
+.tok img{height:100%;width:auto;display:block;filter:drop-shadow(0 .5cqw .6cqw rgba(0,0,0,.45))}
+.tok.left img{transform:scaleX(-1)}
+.tok.walk img{animation:bob .32s ease-in-out infinite alternate}
+.tok.walk.left img{animation-name:bobl}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-.35cqw)}}
+@keyframes bobl{from{transform:scaleX(-1) translateY(0)}to{transform:scaleX(-1) translateY(-.35cqw)}}
+.tok::before{content:"";position:absolute;left:50%;bottom:-.6cqw;width:5.5cqw;height:1.3cqw;margin-left:-2.75cqw;border-radius:50%;border:.2cqw solid var(--ac);box-shadow:0 0 1cqw var(--ac),inset 0 0 .8cqw var(--ac);z-index:-1}
 .tok[hidden]{display:none!important}
-.tok .doc{position:absolute;left:68%;top:-40%;background:#fff;color:#1F2937;border-radius:.25cqw;font:800 .55cqw var(--f-body);padding:.15cqw .3cqw;border-top:.3cqw solid var(--ac);box-shadow:0 .2cqw .5cqw rgba(0,0,0,.4)}
-.tok .nm{position:absolute;top:115%;left:50%;transform:translateX(-50%);background:rgba(15,23,42,.88);color:#fff;font:700 .7cqw var(--f-mono);padding:.12cqw .45cqw;border-radius:999px;white-space:nowrap}
+.tok .doc{position:absolute;left:60%;top:38%;background:#fff;color:#1F2937;border-radius:.25cqw;font:800 .55cqw var(--f-body);padding:.15cqw .3cqw;border-top:.3cqw solid var(--ac);box-shadow:0 .2cqw .5cqw rgba(0,0,0,.4)}
+.tok .nm{position:absolute;top:calc(100% + .9cqw);left:50%;transform:translateX(-50%);background:rgba(15,23,42,.88);color:#fff;font:700 .7cqw var(--f-mono);padding:.12cqw .45cqw;border-radius:999px;white-space:nowrap}
 .trail{position:absolute;width:.9cqw;height:.9cqw;margin:-.45cqw 0 0 -.45cqw;border-radius:50%;background:var(--ac);opacity:.55;pointer-events:none;z-index:4;animation:fade .9s forwards}
 @keyframes fade{to{opacity:0;transform:scale(.2)}}
 .bub{position:absolute;transform:translate(-50%,-100%);background:#fff;color:#111827;border:.15cqw solid var(--ac);border-radius:.8cqw;padding:.45cqw .75cqw;font:600 .9cqw/1.3 var(--f-body);max-width:16cqw;box-shadow:0 .4cqw 1.2cqw rgba(0,0,0,.35);z-index:6;transition:opacity .2s}
@@ -150,7 +159,7 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
   <p class="ai" id="ai" data-s="kutilmoqda"></p>
 
   <div class="stage"><div class="scene" id="scene">
-    <img src="ofis-fon.jpg" alt="Agentlar ofisi: 8 ta oyna xona, har birida agent óz stolida">
+    <img src="ofis-bosh.jpg" alt="Agentlar ofisi: 8 ta oyna xona, har birida agent óz stolida">
   </div></div>
 
   <div class="panels">
@@ -193,12 +202,16 @@ const PEOPLE=[
 const A={};
 PEOPLE.forEach((p,i)=>{
   const a=Object.assign({},p,{idx:i,x:p.seat[0],y:p.seat[1],mode:'sit',at:{room:p.id,slot:null},path:[],bubble:null,work:null,carry:null,doneT:0,boardP:0,status:'Bóş',chars:0,home:true});
+  a.sitEl=mk('sit'); place(a.sitEl,...p.room);
+  a.sitEl.style.backgroundSize=`${IW/p.room[2]*100}% ${IH/p.room[3]*100}%`;
+  a.sitEl.style.backgroundPosition=`${p.room[0]/(IW-p.room[2])*100}% ${p.room[1]/(IH-p.room[3])*100}%`;
   a.roomEl=mk('room idle'); a.roomEl.style.setProperty('--ac',p.color); place(a.roomEl,...p.room);
   a.awayEl=mk('away-tag',a.roomEl); a.awayEl.textContent='Yólda'; a.awayEl.hidden=true;
   a.boardEl=mk('board'); a.boardEl.style.setProperty('--ac',p.color); place(a.boardEl,...p.board);
   a.boardEl.innerHTML=`<div class="bt"><i></i>${p.role}</div><div class="bs">Bóş</div><div class="bb"><div></div></div><div class="bx"></div>`;
   a.tokEl=mk('tok'); a.tokEl.style.setProperty('--ac',p.color); a.tokEl.hidden=true;
-  a.tokEl.innerHTML=`${p.ini}<span class="doc" hidden></span><span class="nm">${p.name}</span>`;
+  a.tokEl.innerHTML=(p.id==='ustoz'?'':`<img src="agent-${p.id}.png" alt="${p.name}">`)+`<span class="doc" hidden></span><span class="nm">${p.name}</span>`;
+  a.dir=1;
   a.bubEl=mk('bub'); a.bubEl.style.setProperty('--ac',p.color); a.bubEl.hidden=true;
   a.slots=[[70,40],[-75,40],[0,85]]; a.occ=[null,null,null];
   A[p.id]=a;
@@ -608,14 +621,18 @@ function render(){
     // xona holati
     const st=!a.home?'away':(a.work||(a===BOSS&&running))?'work':'idle';
     if(a.roomEl.dataset.s!==st){a.roomEl.dataset.s=st;a.roomEl.className='room '+st;}
-    a.awayEl.hidden=a.home;
+    a.awayEl.hidden=true;
     // belgi
     a.tokEl.hidden=a.home;
+    a.sitEl.classList.toggle('off',!a.home);
+    a.tokEl.classList.toggle('walk',a.mode==='walk');
+    if(a.mode==='stand'){const o=A[a.at.room];a.dir=o.seat[0]>=a.x?1:-1;}
+    a.tokEl.classList.toggle('left',a.dir<0);
     if(!a.home){a.tokEl.style.left=pct(a.x,IW);a.tokEl.style.top=pct(a.y,IH);}
     const doc=a.tokEl.querySelector('.doc'); if(a.carry){doc.hidden=false;if(doc.textContent!==a.carry)doc.textContent=a.carry}else doc.hidden=true;
     // gap
     if(a.bubble){a.bubEl.hidden=false;if(a.bubEl.textContent!==a.bubble.text)a.bubEl.textContent=a.bubble.text;
-      const bx=a.home?a.seat[0]:a.x, by=a.home?a.seat[1]-75:a.y-40;
+      const bx=a.home?a.seat[0]:a.x, by=a.home?a.seat[1]-75:a.y-215;
       a.bubEl.style.left=pct(Math.min(IW-150,Math.max(150,bx)),IW); a.bubEl.style.top=pct(Math.max(70,by),IH);}
     else a.bubEl.hidden=true;
   });
@@ -663,8 +680,8 @@ function step(now){
     if(a.mode==='walk'&&a.path.length){
       let move=260*dt;
       while(move>0&&a.path.length){const t=a.path[0],dx=t.x-a.x,dy=t.y-a.y,d=Math.hypot(dx,dy);
-        if(d<=move){a.x=t.x;a.y=t.y;a.path.shift();move-=d}else{a.x+=dx/d*move;a.y+=dy/d*move;move=0}}
-      if(trailT>.05){const tr=mk('trail');tr.style.setProperty('--ac',a.color);tr.style.left=pct(a.x,IW);tr.style.top=pct(a.y,IH);setTimeout(()=>tr.remove(),900);}
+        if(d<=move){a.x=t.x;a.y=t.y;a.path.shift();move-=d}else{a.x+=dx/d*move;a.y+=dy/d*move;move=0}
+        if(Math.abs(dx)>1)a.dir=dx>0?1:-1;}
       if(!a.path.length){const r=a.onArrive;a.onArrive=null;r&&r()}
     }
   });
